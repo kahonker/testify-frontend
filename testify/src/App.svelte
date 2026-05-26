@@ -1,8 +1,9 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from './assets/vite.svg'
-  import heroImg from './assets/hero.png'
-  import Counter from './lib/Counter.svelte'
+  import svelteLogo from "./assets/svelte.svg";
+  import viteLogo from "./assets/vite.svg";
+  import heroImg from "./assets/hero.png";
+  import Counter from "./lib/Counter.svelte";
+  import Main from "./lib/Main.svelte";
 </script>
 
 <section id="center">
@@ -15,7 +16,7 @@
     <h1>Get started</h1>
     <p>Edit <code>src/App.svelte</code> and save to test <code>HMR</code></p>
   </div>
-  <Counter />
+  <Main />
 </section>
 
 <div class="ticks"></div>
@@ -50,7 +51,11 @@
     <p>Join the Vite community</p>
     <ul>
       <li>
-        <a href="https://github.com/vitejs/vite" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/vitejs/vite"
+          target="_blank"
+          rel="noreferrer"
+        >
           <svg class="button-icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#github-icon"></use>
           </svg>
@@ -74,7 +79,11 @@
         </a>
       </li>
       <li>
-        <a href="https://bsky.app/profile/vite.dev" target="_blank" rel="noreferrer">
+        <a
+          href="https://bsky.app/profile/vite.dev"
+          target="_blank"
+          rel="noreferrer"
+        >
           <svg class="button-icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#bluesky-icon"></use>
           </svg>
@@ -84,6 +93,3 @@
     </ul>
   </div>
 </section>
-
-<div class="ticks"></div>
-<section id="spacer"></section>
