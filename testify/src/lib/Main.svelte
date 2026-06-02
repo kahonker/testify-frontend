@@ -12,7 +12,9 @@
       {
         "question": "What is 2+2?",
         "answers": ["1", "2", "3", "4"],
+        "correct": 3,
         "explanation": "2+2=4",
+        "answered": -1
       },
     ])
   }
