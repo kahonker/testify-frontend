@@ -1,6 +1,6 @@
 <script>
     let { question } = $props();
-    let answer = $state();
+    let answer = $state(question.answered);
     const answers = ["A", "B", "C", "D", "E", "F"]
 
     $effect(() => {
@@ -17,7 +17,7 @@
   <h2>{question.question}</h2>
 
   {#each question.answers as ans, i}
-    <input type="radio" id={answers[i]} name="answer" value={i} bind:group={answer}>
+    <input type="radio" id={answers[i]} name="answer" value={i} bind:group={question.answered}>
     <label for={answers[i]}>{answers[i]}. {ans}</label><br>
   {/each}
 </form>
