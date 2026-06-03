@@ -19,7 +19,7 @@
   }
 </script>
 
-<section id="main">
+<div id="app" class="app">
   {#if !questions}
     <Main setQuestionsFromChild={setQuestions} />
   {:else if !submitted}
@@ -27,4 +27,5 @@
   {:else}
     <ResultsView {questions} {refreshPage} />
   {/if}
-</section>
+</div>
+
