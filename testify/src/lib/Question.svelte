@@ -3,17 +3,23 @@
   const answers = ["A", "B", "C", "D", "E", "F"];
 </script>
 
-<form>
-  <h2>{@html question.question}</h2>
+<form class="question-form">
+  <h2 class="question-form__title">{@html question.question}</h2>
 
-  {#each question.answers as ans, i}
-    <input
-      type="radio"
-      id={answers[i]}
-      name="answer"
-      value={i}
-      bind:group={question.answered}
-    />
-    <label for={answers[i]}>{answers[i]}. {ans}</label><br />
-  {/each}
+  <div class="question-form__options">
+    {#each question.answers as ans, i}
+      <div class="question-form__option">
+        <input
+          type="radio"
+          id="answer-{answers[i]}"
+          name="answer"
+          value={i}
+          class="question-form__radio"
+          bind:group={question.answered}
+        />
+        <label for="answer-{answers[i]}" class="question-form__label">{answers[i]}. {ans}</label>
+      </div>
+    {/each}
+  </div>
 </form>
+
