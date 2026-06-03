@@ -3,11 +3,9 @@
   let subject = $state("");
   let questionAmount = $state(20);
 
-  function generateQuestions(){
-    /*
-      Add requests to backend here
-    */
-   console.log("pressed")
+  async function generateQuestions(){
+    const response = await fetch(`http://localhost:5000/make_test/${subject}/${questionAmount}`);
+    console.log(response)
     setQuestionsFromChild([
       {
         "question": "What is 2+2?",
