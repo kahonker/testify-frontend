@@ -1,23 +1,19 @@
 <script>
-    let { question } = $props();
-    let answer = $state(question.answered);
-    const answers = ["A", "B", "C", "D", "E", "F"]
-
-    $effect(() => {
-      question.answered = answer;
-
-      return () => {
-        console.log("changed answer")
-      };
-    }
-    )
+  let { question = $bindable() } = $props();
+  const answers = ["A", "B", "C", "D", "E", "F"];
 </script>
 
 <form>
-  <h2>{question.question}</h2>
+  <h2>{@html question.question}</h2>
 
   {#each question.answers as ans, i}
-    <input type="radio" id={answers[i]} name="answer" value={i} bind:group={question.answered}>
-    <label for={answers[i]}>{answers[i]}. {ans}</label><br>
+    <input
+      type="radio"
+      id={answers[i]}
+      name="answer"
+      value={i}
+      bind:group={question.answered}
+    />
+    <label for={answers[i]}>{answers[i]}. {ans}</label><br />
   {/each}
 </form>

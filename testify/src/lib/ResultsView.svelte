@@ -1,12 +1,11 @@
 <script>
-  import Question from "./Question.svelte";
+  import Result from "./Result.svelte";
 
-  let { questions = $bindable(), setSubmitted } = $props();
+  let { questions, refreshPage } = $props();
   let currQuestionIdx = $state(0);
 
   function changeCurrQuestionIdx(idx) {
     currQuestionIdx = idx;
-    console.log(currQuestionIdx);
   }
 </script>
 
@@ -19,7 +18,7 @@
 
   <section id="center">
     {#if currQuestionIdx !== questions.length}
-      <Question bind:question={questions[currQuestionIdx]} />
+      <Result question={questions[currQuestionIdx]} />
     {:else}
       <h1>You finished</h1>
       {#each questions as _, i}
@@ -36,6 +35,6 @@
       >Next</button
     >
   {:else}
-    <button onclick={() => setSubmitted()}>Submit</button>
+    <button onclick={() => refreshPage()}>New Test</button>
   {/if}
 </section>

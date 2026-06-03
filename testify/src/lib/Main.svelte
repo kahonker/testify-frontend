@@ -3,18 +3,25 @@
   let subject = $state("");
   let questionAmount = $state(20);
 
-  async function generateQuestions(){
-    const response = await fetch(`http://localhost:5000/make_test/${subject}/${questionAmount}`);
-    console.log(response)
-    setQuestionsFromChild([
-      {
-        "question": "What is 2+2?",
-        "answers": ["1", "2", "3", "4"],
-        "correct": 3,
-        "explanation": "2+2=4",
-        "answered": -1
-      },
-    ])
+  async function generateQuestions() {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/make_test/${subject}/${questionAmount}`,
+      );
+      const data = await response.json();
+      console.log(data);
+      setQuestionsFromChild(data);
+    } catch {
+      setQuestionsFromChild([
+        {
+          question: "What is 2+2?",
+          answers: ["1", "2", "3", "4"],
+          correct: 3,
+          explanation: "2+2=4",
+          answered: -1,
+        },
+      ]);
+    }
   }
 </script>
 
@@ -27,5 +34,8 @@
       <option value={(i + 1) * 10}>{(i + 1) * 10}</option>
     {/each}
   </select>
-  <button class="main__button--send" onclick={generateQuestions}>↑</button>
+  <button type="button" class="main__button--send" onclick={generateQuestions}
+    >↑</button
+  >
 </form>
+

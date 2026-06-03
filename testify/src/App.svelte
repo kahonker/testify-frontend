@@ -1,28 +1,30 @@
 <script>
   import Main from "./lib/Main.svelte";
-  import Question from "./lib/Question.svelte";
-    import QuestionView from "./lib/QuestionView.svelte";
+  import QuestionView from "./lib/QuestionView.svelte";
+  import ResultsView from "./lib/ResultsView.svelte";
 
-  let questions = $state()
+  let questions = $state();
+  let submitted = $state(false);
 
   function setQuestions(generatedQuestions) {
     questions = generatedQuestions;
+  }
+
+  function setSubmitted() {
+    submitted = !submitted;
+  }
+
+  function refreshPage() {
+    window.location.reload();
   }
 </script>
 
 <section id="main">
   {#if !questions}
-    <Main setQuestionsFromChild={setQuestions}/>
+    <Main setQuestionsFromChild={setQuestions} />
+  {:else if !submitted}
+    <QuestionView bind:questions {setSubmitted} />
   {:else}
-    <QuestionView questions={questions} />
-    <!-- <Question question = {
-      {
-        "question": "What is 2+2?",
-        "answers": ["1", "2", "3", "4"],
-        "explanation": "2+2=4"
-      }
-    }/> -->
+    <ResultsView {questions} {refreshPage} />
   {/if}
 </section>
-
-
