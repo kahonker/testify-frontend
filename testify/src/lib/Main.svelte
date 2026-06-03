@@ -27,14 +27,14 @@
 
 <h1>Welcome to testify!</h1>
 
-<form id="form" class="main">
-  <textarea bind:value={subject} class="main__textarea--subject"> </textarea>
-  <select bind:value={questionAmount} class="main__select--questions">
+<form id="test-generator-form" class="test-generator">
+  <textarea bind:value={subject} class="test-generator__subject-input"> </textarea>
+  <select bind:value={questionAmount} class="test-generator__question-count">
     {#each Array(5) as _, i}
       <option value={(i + 1) * 10}>{(i + 1) * 10}</option>
     {/each}
   </select>
-  <button type="button" class="main__button--send" onclick={generateQuestions}
+  <button type="button" class="test-generator__submit-button" onclick={generateQuestions}
     >↑</button
   >
 </form>
