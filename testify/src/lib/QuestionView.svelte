@@ -12,7 +12,9 @@
 
 <section id="question-view" class="question-view">
   {#if currQuestionIdx !== 0}
-    <button class="question-view__nav-button question-view__nav-button--previous" onclick={() => changeCurrQuestionIdx(currQuestionIdx - 1)}
+    <button
+      class="question-view__nav-button question-view__nav-button--previous"
+      onclick={() => changeCurrQuestionIdx(currQuestionIdx - 1)}
       >Previous</button
     >
   {/if}
@@ -23,22 +25,27 @@
     {:else}
       <h1>You finished</h1>
       <div class="question-view__question-selector">
-        {#each questions as _, i}
+        {#each questions as question, i}
           <button
             class="question-view__question-selector-button"
-            onclick={() => changeCurrQuestionIdx(i)}>{i + 1}</button
-          >
+            onclick={() => changeCurrQuestionIdx(i)}
+            class:question-view__question-selector-button--no-answer={question.answered ===
+              -1}
+            >{i + 1}
+          </button>
         {/each}
       </div>
     {/if}
   </section>
 
   {#if currQuestionIdx !== questions.length}
-    <button class="question-view__nav-button question-view__nav-button--next" onclick={() => changeCurrQuestionIdx(currQuestionIdx + 1)}
-      >Next</button
+    <button
+      class="question-view__nav-button question-view__nav-button--next"
+      onclick={() => changeCurrQuestionIdx(currQuestionIdx + 1)}>Next</button
     >
   {:else}
-    <button class="question-view__submit-button" onclick={() => setSubmitted()}>Submit</button>
+    <button class="question-view__submit-button" onclick={() => setSubmitted()}
+      >Submit</button
+    >
   {/if}
 </section>
-

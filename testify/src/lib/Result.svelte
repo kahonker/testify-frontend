@@ -11,7 +11,8 @@
       <p
         class="result__answer"
         class:result__answer--correct={question.correct === i}
-        class:result__answer--incorrect={question.answered === i && question.correct !== i}
+        class:result__answer--incorrect={question.answered === i &&
+          question.correct !== i}
       >
         {answers[i]}. {ans}
       </p>
@@ -27,4 +28,3 @@
     <p>{question.explanation}</p>
   </div>
 </section>
-
