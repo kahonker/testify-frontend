@@ -1,3 +1,5 @@
+@question-view-mobile-breakpoint: 900px;
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -227,7 +229,7 @@ body {
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: @question-view-mobile-breakpoint) {
   .question-view__content {
     width: calc(100% - 32px);
     min-width: 0;
