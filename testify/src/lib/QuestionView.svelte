@@ -30,6 +30,7 @@
             <button
               class="question-view__question-selector-button"
               onclick={() => changeCurrQuestionIdx(i)}
+              class:question-view__question-selector-button--answered={question.answered !== -1}
               class:question-view__question-selector-button--no-answer={question.answered ===
                 -1}
               >{i + 1}
