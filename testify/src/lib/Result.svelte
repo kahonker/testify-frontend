@@ -4,18 +4,20 @@
 </script>
 
 <section class="result">
-  <h2 class="result__question">{question.question}</h2>
+  <h2 class="result__question">{@html question.question}</h2>
 
   <div class="result__answers">
     {#each question.answers as ans, i}
-      <p
-        class="result__answer"
-        class:result__answer--correct={question.correct === i}
-        class:result__answer--incorrect={question.answered === i &&
-          question.correct !== i}
-      >
-        {answers[i]}. {ans}
-      </p>
+      <div class="result__option">
+        <p
+          class="result__answer"
+          class:result__answer--correct={question.correct === i}
+          class:result__answer--incorrect={question.answered === i &&
+            question.correct !== i}
+        >
+          {@html answers[i]}. {ans}
+        </p>
+      </div>
     {/each}
   </div>
 
@@ -25,6 +27,6 @@
   </div>
 
   <div class="result__explanation">
-    <p>{question.explanation}</p>
+    <p>{@html question.explanation}</p>
   </div>
 </section>

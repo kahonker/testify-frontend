@@ -8,7 +8,10 @@
 
   <div class="question-form__options">
     {#each question.answers as ans, i}
-      <div class="question-form__option">
+      <div
+        class="question-form__option"
+        class:question-form__option--selected={question.answered === i}
+      >
         <input
           type="radio"
           id="answer-{answers[i]}"
@@ -17,9 +20,10 @@
           class="question-form__radio"
           bind:group={question.answered}
         />
-        <label for="answer-{answers[i]}" class="question-form__label">{answers[i]}. {ans}</label>
+        <label for="answer-{answers[i]}" class="question-form__label"
+          >{answers[i]}. {ans}</label
+        >
       </div>
     {/each}
   </div>
 </form>
-
