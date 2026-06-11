@@ -4,7 +4,7 @@
 
   let { questions, refreshPage } = $props();
   let currQuestionIdx = $state(0);
-  let score = 0;
+  let score = $state(0);
 
   function changeCurrQuestionIdx(idx) {
     currQuestionIdx = idx;
