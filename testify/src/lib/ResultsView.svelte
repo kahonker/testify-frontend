@@ -14,9 +14,9 @@
     let correctCount = 0;
     for (let index = 0; index < questions.length; index++) {
       const question = questions[index];
-      if (question.answered !== question.correct) correctCount++;
+      if (question.answered === question.correct) correctCount++;
     }
-    score = Math.round(correctCount / questions.length) * 100;
+    score = Math.round((correctCount / questions.length) * 100);
   });
 </script>
 

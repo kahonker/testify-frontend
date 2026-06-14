@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "less": "^4.6.4",
-    "mathjax": "^4.1.2",
     "svelte-preprocess": "^6.0.5"
   }
 }
