@@ -6,19 +6,19 @@
 
 Testify is an AI powered app that generates a practice test based on a requested subject.\
 
-It can make a test about any topic\
+It can make a test about any topic
 
 ## Running the app
 
 git clone <https://github.com/kahonker/testify-frontend.git>\
 cd testify-frontend/testify\
 npm install\
-npm run dev\
+npm run dev
 
 ## Contributions (front end)
 
 Alexey - did everything\
-Si Hang - did nothing\
+Si Hang - did nothing
 
 ## Agent Reflections
 
