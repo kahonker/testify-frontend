@@ -2,8 +2,12 @@
   let { setQuestionsFromChild } = $props();
   let subject = $state("");
   let questionAmount = $state(20);
+  let isLoading = $state(false);
 
   async function generateQuestions() {
+    if (!subject.trim() || isLoading) return;
+
+    isLoading = true;
     try {
       const response = await fetch(
         `http://localhost:5000/make_test/${subject}/${questionAmount}`,
@@ -21,6 +25,8 @@
           answered: -1,
         },
       ]);
+    } finally {
+      isLoading = false;
     }
   }
 </script>
@@ -33,9 +39,14 @@
       bind:value={subject}
       class="test-generator__subject-input"
       rows="1"
+      disabled={isLoading}
     >
     </textarea>
-    <select bind:value={questionAmount} class="test-generator__question-count">
+    <select
+      bind:value={questionAmount}
+      class="test-generator__question-count"
+      disabled={isLoading}
+    >
       {#each Array(5) as _, i}
         <option value={(i + 1) * 10}>{(i + 1) * 10}</option>
       {/each}
@@ -43,7 +54,14 @@
     <button
       type="button"
       class="test-generator__submit-button"
-      onclick={generateQuestions}>↑</button
+      onclick={generateQuestions}
+      disabled={isLoading || !subject.trim()}
     >
+      {#if isLoading}
+        <span class="spinner"></span>
+      {:else}
+        ↑
+      {/if}
+    </button>
   </form>
 </section>

@@ -22,7 +22,7 @@
           bind:group={question.answered}
         />
         <label for="answer-{answers[i]}" class="question-form__label"
-          >{answers[i]}. ${ans}</label
+          >{answers[i]}. {@html ans}</label
         >
       </div>
     {/each}

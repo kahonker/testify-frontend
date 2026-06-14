@@ -15,7 +15,7 @@
           class:result__answer--incorrect={question.answered === i &&
             question.correct !== i}
         >
-          {@html answers[i]}. {ans}
+          {@html answers[i]}. {@html ans}
         </p>
       </div>
     {/each}

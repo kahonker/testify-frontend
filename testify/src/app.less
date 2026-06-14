@@ -34,9 +34,6 @@
     font-family: var(--heading);
   }
 
-  code{
-    font-family: var(--mono);
-  }
 
   * {
     font-family: var(--sans);
@@ -187,6 +184,9 @@ body {
 .question-form__option {
   position: relative;
   width: min(100%, 540px);
+  :global(code){
+    font: var(--mono);
+  }
 }
 
 .question-form__radio {
@@ -437,6 +437,7 @@ body {
   }
 }
 
+
 /* Navigation Buttons */
 .question-view__corner-button,
 .results-view__corner-button,
@@ -495,3 +496,17 @@ body {
   border-color: rgb(212 25 25 / 0.7);
   box-shadow: 0 4px 8px rgb(212 25 25 / 0.3);
 }
+
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
